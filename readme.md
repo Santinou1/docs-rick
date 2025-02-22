@@ -1,63 +1,49 @@
-Bueno Ricki, el lunes te muestro todo como quedo y avanzamos con la siguiente tarea.
-Primero te voy a mostrar lo que hice, como esta todo funcionando y despues voy a dar una reflexion de como estoy sintiendo esta primera semana.
+Bueno Ricki, el lunes te muestro todo como quedó y avanzamos con la siguiente tarea. Primero te voy a mostrar lo que hice, cómo está todo funcionando y después voy a dar una reflexión de cómo estoy sintiendo esta primera semana.
 
+La tarea es = Crear un nuevo plan de Stripe (suscripción) para el Early Access en la Landing-page. Si el usuario NO tiene cuenta, hacer una petición a portal para registrar el usuario, posteriormente iniciar sesión, para poder guardar los tokens y guardar el uid en una DB temporal así se puede crear el customer correctamente.
 
-La tarea es = Crear un nuevo plan de stripe (subscripcion) para el Early Access en la Landing-page.
-Si el usuario NO tiene cuenta, hacer una peticion a portal para registar el usuario, posteriormente iniciar sesion, para poder guardar los tokens y guaradar el uid en una DBTemporal asi se puede crear el custoemr correctamente. 
+Si el usuario está con sesión iniciada, y tiene por ejemplo un plan "starter", hacer el checkout correctamente y cambiarle el plan starter a Early-access. (Debido a que starter era el antiguo y early-access es el último comprado).
 
-Si el usuario esta con sesion iniciada, y tiene por ejemplo un plan "starter" hacer el checkout correctamente y cambiarle el plan starter a Early-acces. (Debido que starter era el antiguo y early-acces es el ultimo comprado).
-
-Actualizar en el front en la parte de /netsocks/proxy/zones , el estado de starter a early_access.
-Tambien faltaria.
-
+Actualizar en el front en la parte de /netsocks/proxy/zones, el estado de starter a early_access. También faltaría.
 
 Si el usuario es nuevo y se crea la cuenta, una vez que se haga el checkout redireccionar correctamente a netsocks/proxys.
 
-Diferenciar entre subscription y payment de stripe, porque si no tenia un error a la hora de recargar creditos debido que siempre se trataba el estado como subscription y ya se arreglo.
+Diferenciar entre subscription y payment de Stripe, porque si no tenía un error a la hora de recargar créditos debido a que siempre se trataba el estado como subscription y ya se arregló.
 
-Ahora voy a mandarte unas fotos de todo el flujo asi ves como quedo.
+Ahora voy a mandarte unas fotos de todo el flujo así ves cómo quedó.
 
------
+### FLUJO CON USUARIO NO INICIADO SESIÓN
 
+A la hora de apretar el botón get-early-access en la consola muestra eso para identificar si está logeado o no.
 
-FLUJO CON USUARIO NO INICIADO SESION
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151335.png)
 
-A la hora de apretar el boton get-early-acces en la consola muestra eso para identificar si esta logeado o no.
+Una vez se paga en Stripe, nos redirige a la URL [http://localhost:5175/netsocks/proxy](http://localhost:5175/netsocks/proxy)
 
-![[Pasted image 20250222151335.png]]
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151517.png)
 
+Y en la parte de zones aparece así.
 
-Una vez se paga en stripe. 
-Nos redirige a la url http://localhost:5175/netsocks/proxy
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151559.png)
 
-![[Pasted image 20250222151517.png]]
+Y si recargo créditos, se queda el plan early_access y se agregan los créditos.
 
-Y en la parte de zones aparece asi. 
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151649.png)
 
+### FLUJO CON USUARIO INICIADO SESIÓN
 
-![[Pasted image 20250222151559.png]]
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151846.png)
 
-Y si recargo creditos se queda el plan early_acces y se agregan los creditos.
+Cuando hacemos el flujo de checkout si estamos iniciados en sesión, se autocompleta el email. (También pasa en la parte de recargar créditos de proxy, me olvidé de mostrarlo, lo voy a mostrar ahora)
 
-![[Pasted image 20250222151649.png]]
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151938.png)
 
+**Estado del plan antes de hacer el checkout:**
 
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222152316.png)
 
------
+**Estado del plan después de hacer el checkout:**
 
-FLUJO CON USUARIO INICIADO SESION
+![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222152412.png)
 
-![[Pasted image 20250222151846.png]]
-
-Cuando hacemos el flujo de checkout si estamos iniciado sesion, se autocompleta el email.
-(Tambien pasa en la parte de recargar creditos de proxy , me olvide de mostrarlo lo voy a mostrar ahora)
-![[Pasted image 20250222151938.png]]
-
-(ESTADO DEL PLAN ANTES DE HACER EL CHECKOUT)
-![[Pasted image 20250222152316.png]]
-
-(ESTADO DEL PLAN DEPSUES DE HACER EL CHECKOUT)
-
-![[Pasted image 20250222152412.png]]
-
-(Y SI SE CARGA CREDITOS SE MANTIENE EL PLAN EARLY_ACCES)
+**Y si se cargan créditos, se mantiene el plan early_access.**
