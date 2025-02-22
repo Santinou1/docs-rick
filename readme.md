@@ -34,9 +34,9 @@ Y si recargo créditos, se queda el plan early_access y se agregan los créditos
 
 ![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151846.png)
 
-Cuando hacemos el flujo de checkout si estamos iniciados en sesión, se autocompleta el email. (También pasa en la parte de recargar créditos de proxy, me olvidé de mostrarlo, lo voy a mostrar ahora)
+Cuando hacemos el flujo de checkout si estamos iniciados en sesión, se autocompleta el email. (También pasa en la parte de recargar créditos de proxy, me olvidé de mostrarlo)
 
-![Pasted image](https://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222151938.png)
+![Pasted image](http://github.com/Santinou1/docs-rick/blob/main/Pasted%20image%2020250222153611.png)
 
 **Estado del plan antes de hacer el checkout:**
 
